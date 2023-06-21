@@ -1,5 +1,3 @@
-// const photo1 = document.getElementById("image1")
-
 
 // const tableau = [
 //   { id: 1, title: 'Abajour Tahina', imageUrl: 'http://localhost:5678/images/abajour-tahina1651286843956.png', categoryId: 1, userId: 1 },
@@ -42,27 +40,22 @@ fetch('http://localhost:5678/api/works')
 //   });
 
 
-// let figcaption  = document.createElement("figcaption")
 
-
-// figcaption.innerHTML = data[1].title
-
-// const gallery = document.querySelector('.gallery');
-// gallery.appendChild(figcaption);
-
-
-let gallery = document.querySelector(".gallery");
-
-let img = document.createElement("img");
-gallery.appendChild(img);
-
-let figcaption = document.createElement("figcaption");
-gallery.appendChild(figcaption);
 
 fetch("http://localhost:5678/api/works")
   .then(response => response.json())
   .then(data => {
-    const title = data[0].title;
-    figcaption.innerHTML = data[0].title
+    const gallery = document.querySelector(".gallery");
+    for (let i in data) {
+      const img = document.createElement("img");
+      img.src = data[i].imageUrl;
+      gallery.appendChild(img);
+
+      const figcaption = document.createElement("figcaption");
+      figcaption.innerHTML = data[i].title;
+      gallery.appendChild(figcaption);
+    }
   });
+
+
  
