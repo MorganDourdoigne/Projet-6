@@ -32,10 +32,23 @@ fetch("http://localhost:5678/api/works")
   });
 
 
-  // Addeventlisteners sur les filtres
+/*partie filtre addeventlisteners*/
 
-  
+/*récupération de tous les boutons à l'intérieur de "filter-container"*/
+const buttons = document.querySelectorAll(".filter-container button");
 
+/*fonction quand un bouton est cliqué tous les boutons deviennent
+ blanc sauf le bouton cliqué qui prend le css vert
+*/
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Réinitialiser les styles de tous les boutons
+    buttons.forEach((btn) => {
+      btn.style.backgroundColor = "white";
+      btn.style.color = "black";
+    });
 
-
- 
+    btn.style.backgroundColor = "#1D6154";
+    btn.style.color = "white";
+  });
+});
