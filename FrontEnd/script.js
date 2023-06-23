@@ -33,7 +33,6 @@ fetch("http://localhost:5678/api/works")
 
 
 /*partie filtre addeventlisteners*/
-
 /*récupération de tous les boutons à l'intérieur de "filter-container"*/
 const buttons = document.querySelectorAll(".filter-container button");
 
@@ -42,13 +41,46 @@ const buttons = document.querySelectorAll(".filter-container button");
 */
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    // Réinitialiser les styles de tous les boutons
+    // Réinitialise les styles de tous les boutons
     buttons.forEach((btn) => {
       btn.style.backgroundColor = "white";
       btn.style.color = "black";
     });
-
+    // donne un style css au bouton cliqué
     btn.style.backgroundColor = "#1D6154";
     btn.style.color = "white";
   });
 });
+
+
+/*addeventlisteners sur les filtres */
+/*clic sur #objets pour trouver les datas dans l'api */
+  const objectsButton = document.querySelector('#objects');
+  objectsButton.addEventListener('click', () => {
+    fetch('http://localhost:5678/api/categories')
+      .then(response => response.json())
+        .then(data => {
+           const category1 = data.find(category => category.id === 1);
+           console.log(category1);
+   })});
+    
+   /*clic sur #Appartements pour trouver les datas dans l'api*/
+   const appartmentsButton = document.querySelector('#appartments');
+   appartmentsButton.addEventListener('click', () => {
+     fetch('http://localhost:5678/api/categories')
+       .then(response => response.json())
+        .then(data => {
+        const category2 = data.find(category => category.id === 2);
+        console.log(category2);
+      }) }); 
+   
+      /*clic sur #restaurants pour trouver les datas dans l'api*/
+      const restaurantsButton = document.querySelector('#restaurants');
+      restaurantsButton.addEventListener('click', () => {
+        fetch('http://localhost:5678/api/categories')
+          .then(response => response.json())
+           .then(data => {
+           const category3 = data.find(category => category.id === 3);
+           console.log(category3);
+         })   
+      }); 
