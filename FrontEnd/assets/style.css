@@ -228,7 +228,7 @@ label {
   display: inline-block;
   width: 100px;
   text-align: left;
-  margin-right: 255px;
+  margin-right: 253px;
 }
 
 .input_login {
@@ -238,6 +238,9 @@ label {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.bouton_login{
+	height: 44px;
+}
 
 .underline_sentence{
 	color: black;
