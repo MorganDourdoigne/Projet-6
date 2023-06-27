@@ -55,15 +55,31 @@ buttons.forEach((btn) => {
 
 /*addeventlisteners sur les filtres */
 /*clic sur #objets pour trouver les datas dans l'api */
-  const objectsButton = document.querySelector('#objects');
-  objectsButton.addEventListener('click', () => {
-    fetch('http://localhost:5678/api/categories')
-      .then(response => response.json())
-        .then(data => {
-           const category1 = data.find(category => category.id === 1);
-           console.log(category1);
-   })});
-    
+const objectsButton = document.querySelector('#objects');
+objectsButton.addEventListener('click', () => {
+  fetch('http://localhost:5678/api/categories')
+    .then(response => response.json())
+    .then(data => {
+      const category1 = data.filter(category => category.id === 1);
+      const gallery = document.querySelector('#gallery'); 
+      for (let i in category1) {
+        const figure = document.createElement("figure");
+        gallery.appendChild(figure);
+
+        const img = document.createElement("img");
+        img.src = category1[i].imageUrl;
+        figure.appendChild(img);  
+        const figcaption = document.createElement("figcaption");
+        figcaption.innerHTML = category1[i].title;
+        figure.appendChild(figcaption);
+      }
+    });
+});
+
+
+
+
+
    /*clic sur #Appartements pour trouver les datas dans l'api*/
    const appartmentsButton = document.querySelector('#appartments');
    appartmentsButton.addEventListener('click', () => {
@@ -84,3 +100,5 @@ buttons.forEach((btn) => {
            console.log(category3);
          })   
       }); 
+
+      
