@@ -6,7 +6,6 @@ fetch('http://localhost:5678/api/works')
 
   
 // méthode fetch pou récupérer les images et les"titles" dans l'API
-
 fetch("http://localhost:5678/api/works")
 // envoi d'une demande pour avoir un retour en format JSon
   .then(response => response.json())
@@ -35,10 +34,8 @@ fetch("http://localhost:5678/api/works")
 /*partie filtre addeventlisteners*/
 /*récupération de tous les boutons à l'intérieur de "filter-container"*/
 const buttons = document.querySelectorAll(".filter-container button");
-
 /*fonction quand un bouton est cliqué tous les boutons deviennent
- blanc sauf le bouton cliqué qui prend le css vert
-*/
+ blanc sauf le bouton cliqué qui prend le css vert*/
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     // Réinitialise les styles de tous les boutons
@@ -53,33 +50,13 @@ buttons.forEach((btn) => {
 });
 
 
+
+
+
 /*addeventlisteners sur les filtres */
-/*clic sur #objets pour trouver les datas dans l'api */
-const objectsButton = document.querySelector('#objects');
-objectsButton.addEventListener('click', () => {
-  fetch('http://localhost:5678/api/categories')
-    .then(response => response.json())
-    .then(data => {
-      const category1 = data.filter(category => category.id === 1);
-      const gallery = document.querySelector('#gallery'); 
-      for (let i in category1) {
-        const figure = document.createElement("figure");
-        gallery.appendChild(figure);
-
-        const img = document.createElement("img");
-        img.src = category1[i].imageUrl;
-        figure.appendChild(img);  
-        const figcaption = document.createElement("figcaption");
-        figcaption.innerHTML = category1[i].title;
-        figure.appendChild(figcaption);
-      }
-    });
-});
 
 
-
-
-
+// test
    /*clic sur #Appartements pour trouver les datas dans l'api*/
    const appartmentsButton = document.querySelector('#appartments');
    appartmentsButton.addEventListener('click', () => {
@@ -90,6 +67,7 @@ objectsButton.addEventListener('click', () => {
         console.log(category2);
       }) }); 
    
+      
       /*clic sur #restaurants pour trouver les datas dans l'api*/
       const restaurantsButton = document.querySelector('#restaurants');
       restaurantsButton.addEventListener('click', () => {
@@ -101,4 +79,28 @@ objectsButton.addEventListener('click', () => {
          })   
       }); 
 
+
+
+      /*clic sur #objets pour trouver les datas dans l'api */
+      const objectsButton = document.querySelector('#objects');
+      objectsButton.addEventListener('click', () => {
+        fetch('http://localhost:5678/api/categories')
+          .then(response => response.json())
+          .then(data => {
+            const category1 = data.filter(category => category.id === 1);
+            const gallery = document.querySelector('.gallery'); 
+            for (let i in category1) {
+      
+              const figure = document.createElement("figure");
+              gallery.appendChild(figure);
+              const img = document.createElement("img");
+              img.src = category1[i].imageUrl;
+              figure.appendChild(img);  
+              const figcaption = document.createElement("figcaption");
+              figcaption.innerHTML = category1[i].title;
+              figure.appendChild(figcaption);
+            }
+          });
+      });
+      
       
