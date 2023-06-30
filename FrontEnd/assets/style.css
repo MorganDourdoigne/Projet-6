@@ -247,7 +247,7 @@ label {
 }
 
 
-/* css pour la modale */
+/* css bandeau noir*/
 .bandeau {
     background-color: black;
 	height: 61px;
@@ -273,9 +273,39 @@ label {
 	background-color: white;
 	border-radius: 25px;
 	background-color: white;
-	height: 50px;
+	height: 43px;
 	margin: 10px 0 10px 13px;
 	padding: 0 14px;
 }
-	  
+
+	  /*css modale  */
   
+#modale {		
+	position: fixed;
+	z-index: 1;
+	padding-top: 28px;
+	overflow: auto;
+	background-color: #FFFEF8;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width:630px;
+	height:731px;
+}
+	
+.title_galerie{
+	font-family: 'Work Sans' ;
+	text-align: center;
+	font-weight: 400;
+	font-size: 26px;
+	margin-top: 30px;
+}
+
+.fa-x{	
+	color: black;
+}
+
+.logoX{
+	padding-right: 30px;
+	float: right;
+}
