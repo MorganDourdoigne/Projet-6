@@ -245,3 +245,37 @@ label {
 .underline_sentence{
 	color: black;
 }
+
+
+/* css pour la modale */
+.bandeau {
+    background-color: black;
+	height: 61px;
+    display: flex;
+	align-items: center;
+    justify-content: center
+	
+  }
+
+  .fa-pen-to-square{
+	color: white;
+	padding-right: 10px;
+  }
+
+  .edition{
+	color: white;
+
+  }
+
+  .publier{
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+	background-color: white;
+	border-radius: 25px;
+	background-color: white;
+	height: 50px;
+	margin: 10px 0 10px 13px;
+	padding: 0 14px;
+}
+	  
+  
