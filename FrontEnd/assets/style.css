@@ -278,10 +278,9 @@ label {
 	padding: 0 14px;
 }
 
-	  /*css modale  */
-  
+	  /*css modale  */  
 #modale {		
-	position: fixed;
+	position: fixe;
 	z-index: 1;
 	padding-top: 28px;
 	overflow: auto;
@@ -342,5 +341,16 @@ label {
 	color: red;
 	border: none;
 	background-color: #FFFEF8;
+}
 
+/* boutons modifier pour modale */
+#color_write{
+	color: black;
+	padding-bottom: 25px;
+}
+
+#margin_write{
+	color: black;
+	margin-left: 58px;
+	margin-top: 10px;
 }
