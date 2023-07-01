@@ -280,7 +280,7 @@ label {
 
 	  /*css modale  */  
 #modale {		
-	position: fixe;
+	position: fixed;
 	z-index: 1;
 	padding-top: 28px;
 	overflow: auto;
