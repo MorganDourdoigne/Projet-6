@@ -309,3 +309,28 @@ label {
 	padding-right: 30px;
 	float: right;
 }
+
+.bottom{
+	margin: auto;
+	position: absolute;
+	bottom: 0;
+
+}
+
+.border_gray{
+	border: 1px solid rgba(179, 179, 179, 1);
+	width: 420px;
+	margin: auto;
+	margin-left: 102px;
+}
+
+.add_img{
+	border: 2px solid;
+	color: white;
+    border-radius: 25px;
+    background-color: #1D6154;
+    height: 50px;
+    margin: 20px 20px 45px 13px;
+    padding: 5px 38px;
+	margin-left: 204px;
+}
