@@ -280,6 +280,10 @@ label {
 
 	  /*css modale  */  
 
+	  .modify_button{
+		cursor: pointer;
+	  }
+
 	  .modale1{
 		background: black;
 		top: 0;
@@ -318,6 +322,7 @@ label {
 .logoX{
 	padding-right: 30px;
 	float: right;
+	cursor: pointer;
 }
 
 .bottom{
