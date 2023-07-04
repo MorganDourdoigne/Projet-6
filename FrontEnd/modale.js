@@ -13,7 +13,7 @@ open.forEach(open =>{
 })
 
 //fonction pour fermer la modale
-let modal = document.querySelector(".js_modale");
+const modal = document.querySelector(".js_modale");
 const closeModal = function (e){
     if (modal === null) return
     e.preventDefault()
@@ -26,9 +26,4 @@ const closeModal = function (e){
 // fermeture en cliquant sur l'icone X
 const close = document.querySelector(".logoX");
 close.addEventListener("click",closeModal);
-
-// fermeture clique en dehors de la modale
-let back = document.querySelector(".modale1");
-back.addEventListener("click", closeModal);
-
 
