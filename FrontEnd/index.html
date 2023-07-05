@@ -88,13 +88,39 @@
 	<div class="modale1 jsmodalestop">
 	<div id="modale">
 	<div class="logoX"><i class="fa-solid fa-x"></i></div>
-	<div><p class="title_galerie">Galerie photo</p></div>
+	<div><h3 class="title_galerie">Galerie photo</h3></div>
 		<div class="bottom">
 	<div class="border_gray"></div>
-	<button class="add_img">Ajouter une photo</button>
+	<button id="add_photo" class="add_img">Ajouter une photo</button>
 	<button class="cancel_button">Supprimer la galerie</button>
 </div></div></div>
 </aside>
+
+<aside class="js_modale" aria-hidden="true" role="dialog" aria-modal="false" style="display: non;">
+	<div class="modale1 jsmodalestop">
+	<div id="modale">
+	<a href="#" class="arrowLeft"> <i class="fa fa-light fa-arrow-left"></i></a>
+	<div class="logoX"><i class="fa-solid fa-x"></i></div>
+	<div><h3 class="title_galerie">Ajout photo</h3></div>
+ 	<div class="carre_back">
+		<div class="png">
+		<i class="fa-regular fa-image faAddImgSquare"></i><br>
+		<button class="addImgLabel">+ Ajouter photo</button>
+		<p>jpg, png: 4mo max</p></div>
+	</div>
+<div class="form_display">
+	<label><p class="font">Titre</p></label>
+	<input class="display_modale" name="title" required></input>
+	<div class="margin_top">
+	<label><p class="font">Catégorie</p></label>
+	<select  class="display_modale" type="select" class="selectCategory" name="category" required><option value=""></option></select>
+</div></div>
+	<div class="bottom">
+	<div class="border_gray"></div>
+	<button id="add_photo" class="add_img">valider</button>
+	</div>
+</aside>
+
 
 <script src="script.js"></script>
 <script src="login.js"></script>

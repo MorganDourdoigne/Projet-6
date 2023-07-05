@@ -27,3 +27,5 @@ const closeModal = function (e){
 const close = document.querySelector(".logoX");
 close.addEventListener("click",closeModal);
 
+
+
