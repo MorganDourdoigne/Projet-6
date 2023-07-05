@@ -12,6 +12,7 @@ open.forEach(open =>{
        open.addEventListener("click",openModale)       
 })
 
+
 //fonction pour fermer la modale
 const modal = document.querySelector(".js_modale");
 const closeModal = function (e){

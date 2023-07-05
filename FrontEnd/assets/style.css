@@ -342,6 +342,18 @@ label {
 	margin: auto;
 }
 
+.adding{
+	border: 2px solid;
+	color: white;
+    border-radius: 25px;
+    background-color: rgba(29, 97, 84, 1);
+    height: 50px;
+    margin: 20px 20px 29px 13px;
+    padding: 5px 80px;
+	margin-top: 26px;
+
+}
+
 .add_img{
 	border: 2px solid;
 	color: white;
