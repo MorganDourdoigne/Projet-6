@@ -7,10 +7,8 @@ let openModale = function (e) {
     modal.style.display = "block"
 }
 // ouverture en cliquant sur une div "modifier"
-const open = document.querySelectorAll(".modify_button");
-open.forEach(open =>{
-       open.addEventListener("click",openModale)       
-})
+const open = document.querySelector(".modify_button");
+open.addEventListener("click",openModale);
 
 
 //fonction pour fermer la modale
@@ -27,6 +25,4 @@ const closeModal = function (e){
 // fermeture en cliquant sur l'icone X
 const close = document.querySelector(".logoX");
 close.addEventListener("click",closeModal);
-
-
 
