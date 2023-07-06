@@ -11,18 +11,35 @@ const open = document.querySelector(".modify_button");
 open.addEventListener("click",openModale);
 
 
-//fonction pour fermer la modale
+// fermeture de la modale
 const modal = document.querySelector(".js_modale");
-const closeModal = function (e){
+function closeModal (e){
     if (modal === null) return
-    e.preventDefault()
     modal.style.display = "none"
     modal.setAttribute("aria-hidden", "true")
     modal.removeAttribute("aria-modal")
-    modal.removeEventListener("click",closeModal)
-    
+    modal.removeEventListener("click",closeModal)    
 }
+
 // fermeture en cliquant sur l'icone X
 const close = document.querySelector(".logoX");
 close.addEventListener("click",closeModal);
 
+
+// clic en dehors de la modale
+const backgroundModal = document.querySelector(".js_modale");
+backgroundModal.addEventListener("click", function(myEvent) {
+    myEvent.preventDefault();
+    closeModal();
+  });
+  
+
+
+
+function ArrowLeft() {
+    const arrowLeft = document.querySelector(".arrowLeft");
+    arrowLeft.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModale();
+    });
+  }
