@@ -35,12 +35,11 @@ backgroundModal.addEventListener("click", function(myEvent) {
   
 
 
-
+// flèche pour passer de window1 à window2
 function arrowLeft() {
     const arrowLeft = document.querySelector(".arrowLeft");
     arrowLeft.addEventListener('click', function (e) {
-        closeModal(e);
+        openModal();
         });
   }
-
   arrowLeft()

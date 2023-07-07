@@ -474,3 +474,22 @@ label {
 .margin_top{
 	margin-top: 15px;
 }
+
+/* display gallery modal1 */
+.galleryMini {
+	margin-top: 50px;	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;	
+  }
+  
+
+.size_img {
+
+
+  }
+  .size_img img {
+	width: 76.61px;
+	height: 102.57px;
+
+	
+  }
