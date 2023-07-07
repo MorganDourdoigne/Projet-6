@@ -294,19 +294,7 @@ label {
 	background: rgba(0, 0, 0, 0.3);
   }
 	  
-#modale {		
-	position: fixed;
-	z-index: 1;
-	padding-top: 28px;
-	overflow: auto;
-	background-color: #FFFEF8;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width:630px;
-	height:731px;
-}
-	
+
 .title_galerie{
 	font-family: 'Work Sans' ;
 	text-align: center;
@@ -396,8 +384,7 @@ label {
 	padding-top: 9px;
 }
 
-/* modale 2 ajout photos */
-#modale2{
+.display_modal{
 	position: fixed;
 	z-index: 1;
 	padding-top: 28px;

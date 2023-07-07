@@ -1,18 +1,18 @@
 //Fonction pour ouvrir la modale
-let openModale = function (e) {
+let openModal = function (e) {
     e.preventDefault()
-    const modal = document.querySelector(".js_modale");
+    const modal = document.querySelector('#window1');
     modal.removeAttribute("aria-hidden")
     modal.setAttribute("aria-modal","true")
     modal.style.display = "block"
 }
 // ouverture en cliquant sur une div "modifier"
 const open = document.querySelector(".modify_button");
-open.addEventListener("click",openModale);
+open.addEventListener("click",openModal);
 
 
 // fermeture de la modale
-const modal = document.querySelector(".js_modale");
+const modal = document.querySelector("#window1");
 function closeModal (e){
     if (modal === null) return
     modal.style.display = "none"
@@ -27,7 +27,7 @@ close.addEventListener("click",closeModal);
 
 
 // clic en dehors de la modale
-const backgroundModal = document.querySelector(".js_modale");
+const backgroundModal = document.querySelector("#window1");
 backgroundModal.addEventListener("click", function(myEvent) {
     myEvent.preventDefault();
     closeModal();
@@ -36,10 +36,11 @@ backgroundModal.addEventListener("click", function(myEvent) {
 
 
 
-function ArrowLeft() {
+function arrowLeft() {
     const arrowLeft = document.querySelector(".arrowLeft");
     arrowLeft.addEventListener('click', function (e) {
-      e.preventDefault();
-      openModale();
-    });
+        closeModal(e);
+        });
   }
+
+  arrowLeft()
