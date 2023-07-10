@@ -480,16 +480,45 @@ label {
 	margin-top: 50px;	
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;	
+	justify-items: center;
+	margin-left: 90px;
+    margin-right: 90px;
+}
+  
+.size_img img {
+	width: 76.61px;
+	height: 102.57px;	
+}
+
+.size_img{
+	margin-bottom: 10px;
+}
+
+.container {
+	position: relative;
+	display: inline-block;
   }
   
-
-.size_img {
-
-
+  .container img {
+	display: block;
   }
-  .size_img img {
-	width: 76.61px;
-	height: 102.57px;
-
-	
+  
+  .container .icon {
+	position: absolute;
+	top: 5px;
+	padding: 2px;
   }
+  
+  .fa-arrows-up-down-left-right {
+	background-color: black;
+	color: white;
+	right: 24px;
+  }
+  
+  .fa-trash-can {
+	background-color: black;
+	color: white;
+	right: 4px;
+  }
+  
+  
