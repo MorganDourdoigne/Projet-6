@@ -32,8 +32,6 @@ backgroundModal.addEventListener("click", function(myEvent) {
     myEvent.preventDefault();
     closeModal();
   });
-  
-
 
 // flèche pour passer de window1 à window2
 function arrowLeft() {
@@ -45,10 +43,8 @@ function arrowLeft() {
   arrowLeft()
 
 
-//   fetch pour chercher mes données et mettre dans modal1
-
+//fetch pour chercher mes données et mettre dans modal1
 const galleryMini = document.getElementById("galleryMini");
-
 fetch("http://localhost:5678/api/works")
   .then(response => response.json())
   .then(data => {
@@ -79,4 +75,14 @@ fetch("http://localhost:5678/api/works")
       galleryMini.appendChild(sizeImg);
     });
   })
+
+
+// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
+  document.getElementById("add_photo").addEventListener("click", function(){
+    document.getElementById("window2").style.display = "block";
+  });
+  
+
+
+
 
