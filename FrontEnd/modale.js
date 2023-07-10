@@ -43,3 +43,40 @@ function arrowLeft() {
         });
   }
   arrowLeft()
+
+
+//   fetch pour chercher mes données et mettre dans modal1
+
+const galleryMini = document.getElementById("galleryMini");
+
+fetch("http://localhost:5678/api/works")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(work => {
+      const sizeImg = document.createElement("div");
+      sizeImg.classList.add("size_img");
+
+      const container = document.createElement("div");
+      container.classList.add("container");
+
+      const img = document.createElement("img");
+      img.src = work.imageUrl;
+      img.alt = work.title;
+      container.appendChild(img);
+
+      const edit = document.createElement("div");
+      edit.classList.add("edit");
+      const editText = document.createTextNode("éditer");
+      edit.appendChild(editText);
+      container.appendChild(edit);
+
+      const trashCan = document.createElement("i");
+      trashCan.classList.add("fa-regular", "fa-trash-can", "icon");
+      container.appendChild(trashCan);
+
+      sizeImg.appendChild(container);
+
+      galleryMini.appendChild(sizeImg);
+    });
+  })
+

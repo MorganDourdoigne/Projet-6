@@ -476,7 +476,7 @@ label {
 }
 
 /* display gallery modal1 */
-.galleryMini {
+#galleryMini {
 	margin-top: 50px;	
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;	
