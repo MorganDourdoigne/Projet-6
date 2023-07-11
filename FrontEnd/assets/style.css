@@ -339,6 +339,7 @@ label {
     margin: 20px 20px 29px 13px;
     padding: 5px 80px;
 	margin-top: 26px;
+	cursor: pointer;
 
 }
 
@@ -357,6 +358,7 @@ label {
 	color: red;
 	border: none;
 	background-color: #FFFEF8;
+	cursor: pointer;
 }
 
 /* boutons modifier pour modale */
@@ -400,6 +402,7 @@ label {
 .arrowLeft{
 	margin-left: 30px;
     font-size: 20px;	
+	cursor: pointer;
 }
 
 .add{	
