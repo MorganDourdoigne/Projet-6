@@ -42,50 +42,53 @@ function arrowLeft() {
         });
   }
 
-//fetch pour chercher mes données et mettre dans modal1
-const galleryMini = document.getElementById("galleryMini");
-fetch("http://localhost:5678/api/works")
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(work => {
-      const sizeImg = document.createElement("div");
-      sizeImg.classList.add("size_img");
-
-      const container = document.createElement("div");
-      container.classList.add("container");
-
-      const img = document.createElement("img");
-      img.src = work.imageUrl;
-      img.alt = work.title;
-      container.appendChild(img);
-
-      const edit = document.createElement("div");
-      edit.classList.add("edit");
-      const editText = document.createTextNode("éditer");
-      edit.appendChild(editText);
-      container.appendChild(edit);
-
-      const trash = document.createElement("i");
-      trash.classList.add("fa-regular", "fa-trash-can", "icon");
-      container.appendChild(trash);
-
-      sizeImg.appendChild(container);
-
-      galleryMini.appendChild(sizeImg);
-    });
-
-
-  })
-
-// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
+  // ouverture de la modale2 en cliquant sur "ajouter photo" modale1
   document.getElementById("add_photo").addEventListener("click", function(){
     document.getElementById("window2").style.display = "block";
   });
  
 
-// // supression d'un ID dans modale 1
-function deleteWork(id) {
-  trash.addEventListener("click", () => {
+
+// mise en place de la gallerie dans la modale en javascript
+  const galleryMini = document.getElementById("galleryMini");
+  fetch("http://localhost:5678/api/works")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(work => {
+        const sizeImg = document.createElement("div");
+        sizeImg.classList.add("size_img");
+  
+        const container = document.createElement("div");
+        container.classList.add("container");
+  
+        const img = document.createElement("img");
+        img.src = work.imageUrl;
+        img.alt = work.title;
+        container.appendChild(img);
+  
+        const edit = document.createElement("div");
+        edit.classList.add("edit");
+        const editText = document.createTextNode("éditer");
+        edit.appendChild(editText);
+        container.appendChild(edit);
+  
+        const trash = document.createElement("i");
+        trash.classList.add("fa-regular", "fa-trash-can", "icon");
+        container.appendChild(trash);
+  // fonction lors du clique pour retirer l'élément dans la l'api ID
+        trash.addEventListener("click", () => {
+          deleteWork(work.id, trash);
+          sizeImg.remove();
+        });
+  
+        sizeImg.appendChild(container);
+  
+        galleryMini.appendChild(sizeImg);
+      });
+    })
+  
+    // fonction qui annule en faisant un fetch un id 
+  function deleteWork(id) {
     fetch(`http://localhost:5678/api/works/${id}`, {
       method: "DELETE",
       headers: {
@@ -97,5 +100,5 @@ function deleteWork(id) {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
-  });
-}
+  }
+  
