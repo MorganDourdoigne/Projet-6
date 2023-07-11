@@ -84,10 +84,18 @@ fetch("http://localhost:5678/api/works")
  
 
 // // supression d'un ID dans modale 1
-// const Delete = await fetch(`/api/works/${workId}`, {
-//     method: 'DELETE',
-//     headers: {
-//       Accept: '*/*',
-//       Authorization: `Bearer ${userToken}`,
-//     }
-//   });
+function deleteWork(id) {
+  trash.addEventListener("click", () => {
+    fetch(`http://localhost:5678/api/works/${id}`, {
+      method: "DELETE",
+      headers: {
+        accept: "*/*",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  });
+}
