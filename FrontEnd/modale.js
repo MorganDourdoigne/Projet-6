@@ -22,7 +22,7 @@ function closeModal (e){
 }
 
 // fermeture en cliquant sur l'icone X
-const close = document.querySelector(".logoX");
+const close = document.querySelector(".fa-x");
 close.addEventListener("click",closeModal);
 
 
@@ -33,6 +33,7 @@ backgroundModal.addEventListener("click", function(myEvent) {
     closeModal();
   });
 
+
 // flèche pour passer de window1 à window2
 function arrowLeft() {
     const arrowLeft = document.querySelector(".arrowLeft");
@@ -40,8 +41,6 @@ function arrowLeft() {
         openModal();
         });
   }
-  arrowLeft()
-
 
 //fetch pour chercher mes données et mettre dans modal1
 const galleryMini = document.getElementById("galleryMini");
@@ -66,23 +65,29 @@ fetch("http://localhost:5678/api/works")
       edit.appendChild(editText);
       container.appendChild(edit);
 
-      const trashCan = document.createElement("i");
-      trashCan.classList.add("fa-regular", "fa-trash-can", "icon");
-      container.appendChild(trashCan);
+      const trash = document.createElement("i");
+      trash.classList.add("fa-regular", "fa-trash-can", "icon");
+      container.appendChild(trash);
 
       sizeImg.appendChild(container);
 
       galleryMini.appendChild(sizeImg);
     });
-  })
 
+
+  })
 
 // ouverture de la modale2 en cliquant sur "ajouter photo" modale1
   document.getElementById("add_photo").addEventListener("click", function(){
     document.getElementById("window2").style.display = "block";
   });
-  
+ 
 
-
-
-
+// // supression d'un ID dans modale 1
+// const Delete = await fetch(`/api/works/${workId}`, {
+//     method: 'DELETE',
+//     headers: {
+//       Accept: '*/*',
+//       Authorization: `Bearer ${userToken}`,
+//     }
+//   });
