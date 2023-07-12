@@ -34,15 +34,18 @@ backgroundModal.addEventListener("click", function(myEvent) {
   });
 
 
-// flèche pour passer de window1 à window2
+// flèche pour passer de window2 à window1
 function arrowLeft() {
-    const arrowLeft = document.querySelector(".arrowLeft");
-    arrowLeft.addEventListener('click', function (e) {
-        openModal();
-        });
-  }
+  const arrowLeft = document.querySelector(".arrowLeft");
+  arrowLeft.addEventListener("click", function(e) {
+    document.getElementById("window2").style.display = "none";
+    document.getElementById("window1").style.display = "block";
+    e.preventDefault();   
+  })
+}
+arrowLeft();
 
-  // ouverture de la modale2 en cliquant sur "ajouter photo" modale1
+// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
   document.getElementById("add_photo").addEventListener("click", function(){
     document.getElementById("window2").style.display = "block";
   });
@@ -86,6 +89,8 @@ function arrowLeft() {
         galleryMini.appendChild(sizeImg);
       });
     })
+
+
   
     // fonction qui annule en faisant un fetch un id 
   function deleteWork(id) {
