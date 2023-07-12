@@ -15,7 +15,8 @@ document.querySelector('form').addEventListener('submit', (e) => {
     fetch('http://localhost:5678/api/users/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('1')
       },
       body: JSON.stringify(data)
     })

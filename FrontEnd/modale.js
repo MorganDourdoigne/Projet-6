@@ -91,8 +91,7 @@ arrowLeft();
     })
 
 
-  
-    // fonction qui annule en faisant un fetch un id 
+      // fonction qui annule en faisant un fetch un id 
   function deleteWork(id) {
     fetch(`http://localhost:5678/api/works/${id}`, {
       method: "DELETE",
@@ -140,7 +139,7 @@ arrowLeft();
     .then(data => console.log(data))
     .catch(error => console.error(error));
   });
-
+ 
   
   
   
