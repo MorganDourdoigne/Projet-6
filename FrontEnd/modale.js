@@ -102,33 +102,40 @@ function arrowLeft() {
       .catch((error) => console.log(error));
   }
 
+// enregistrer des image dans mon localstorage
+  const input = document.querySelector('input[type="file"]');
+  input.addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      localStorage.setItem('image', reader.result);
+    };
+  });
+  
 
+  // transmission des données vers l'api
+  /* récupération de l'image dans le localstorage +la valeur de la cat' 
+  + la valeur du titre avec un écouteur d'évenemnt sur le bouton "valider"*/
+  document.getElementById('click_post').addEventListener('click', function() {
+    const formData = new FormData();
+    formData.append('title', document.getElementsByName('title')[0].value);
+    formData.append('category', document.getElementById('category').value);
+    formData.append('image', localStorage.getItem('image'));
+   //   /*fetch 'post' en direction de l'api récupération des données en json  */
+    fetch('http://localhost:5678/api/works', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4',
+        'Content-Type': 'multipart/form-data'
+      },
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+  });
 
-// fetch pour pouvoir poster dans mon api de nouvelles données
-// Récupérer les données du stockage local
-const data = JSON.parse(localStorage.getItem('data'));
-
-// Envoyer les données à l'API
-const imageFile = document.getElementById('image-file').files[0];
-const title = document.getElementById('title').value;
-const category = document.getElementById('category').value;
-
-const formData = new FormData();
-formData.append('image', imageFile);
-formData.append('title', title);
-formData.append('category', category);
-
-fetch('http://localhost:5678/api/works', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4',
-  },
-  body: formData
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+  
+  
+  
