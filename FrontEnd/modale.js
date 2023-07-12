@@ -109,17 +109,21 @@ function arrowLeft() {
 const data = JSON.parse(localStorage.getItem('data'));
 
 // Envoyer les données à l'API
+const imageFile = document.getElementById('image-file').files[0];
+const title = document.getElementById('title').value;
+const category = document.getElementById('category').value;
+
+const formData = new FormData();
+formData.append('image', imageFile);
+formData.append('title', title);
+formData.append('category', category);
+
 fetch('http://localhost:5678/api/works', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4',
-    'Content-Type': 'multipart/form-data'
   },
-  body: JSON.stringify({
-    image: data.image,
-    title: data.title,
-    category: data.category
-  })
+  body: formData
 })
 .then(response => response.json())
 .then(data => {
