@@ -352,6 +352,7 @@ label {
     margin: 20px 20px 29px 13px;
     padding: 5px 80px;
 	margin-top: 26px;
+	
 }
 
 .cancel_button{
@@ -447,10 +448,11 @@ label {
 	color: rgba(48, 102, 133, 1);
 	border: none;
 	margin-bottom: 5px;
+	margin-left: 244px;
 }
 
-.addImgLabel:hover {
-	cursor: pointer;
+input[type="file"] {
+    display: none;
 }
 
 .form_display{

@@ -75,7 +75,7 @@ function arrowLeft() {
         const trash = document.createElement("i");
         trash.classList.add("fa-regular", "fa-trash-can", "icon");
         container.appendChild(trash);
-  // fonction lors du clique pour retirer l'élément dans la l'api ID
+  // fonction lors du clic pour retirer l'élément dans l'api  par ID
         trash.addEventListener("click", () => {
           deleteWork(work.id, trash);
           sizeImg.remove();
@@ -101,4 +101,30 @@ function arrowLeft() {
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
   }
-  
+
+
+
+// fetch pour pouvoir poster dans mon api de nouvelles données
+// Récupérer les données du stockage local
+const data = JSON.parse(localStorage.getItem('data'));
+
+// Envoyer les données à l'API
+fetch('http://localhost:5678/api/works', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4',
+    'Content-Type': 'multipart/form-data'
+  },
+  body: JSON.stringify({
+    image: data.image,
+    title: data.title,
+    category: data.category
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
