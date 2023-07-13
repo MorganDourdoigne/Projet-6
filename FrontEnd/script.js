@@ -1,3 +1,4 @@
+
 /* Test fetch pour tester l'échange avec l'API (sous forme
   de tableau "table"*/
 fetch('http://localhost:5678/api/works')
@@ -150,4 +151,16 @@ buttons.forEach((btn) => {
             }
           });
       });
-      
+
+
+/*Fonction qui fait que lorsque l'on récupère le token dans le
+localstorage les éléments avec la classe "display" passe en display block*/
+function displayBanner() {
+  if(localStorage.getItem('token')) {
+    document.querySelectorAll('.display').forEach(element => {
+      element.style.display = 'block';
+    });
+  }
+}
+displayBanner()
+

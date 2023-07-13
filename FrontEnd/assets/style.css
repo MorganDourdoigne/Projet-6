@@ -527,4 +527,6 @@ input[type="file"] {
 	cursor: pointer;
   }
   
-  
+  .display{
+	display: none;
+  }
