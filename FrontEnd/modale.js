@@ -89,16 +89,15 @@ arrowLeft();
         galleryMini.appendChild(sizeImg);
       });
     })
-
+    
 
       // fonction qui annule en faisant un fetch un id 
-  function deleteWork(id) {
+  function deleteWork(id) {   
     fetch(`http://localhost:5678/api/works/${id}`, {
       method: "DELETE",
       headers: {
         accept: "*/*",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4",
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => response.json())
@@ -106,7 +105,9 @@ arrowLeft();
       .catch((error) => console.log(error));
   }
 
-// enregistrer des image dans mon localstorage
+  
+
+// enregistrer des images dans mon localstorage
   const input = document.querySelector('input[type="file"]');
   input.addEventListener('change', function (event) {
     const file = event.target.files[0];
@@ -121,25 +122,27 @@ arrowLeft();
   // transmission des données vers l'api
   /* récupération de l'image dans le localstorage +la valeur de la cat' 
   + la valeur du titre avec un écouteur d'évenemnt sur le bouton "valider"*/
-  document.getElementById('click_post').addEventListener('click', function() {
-    const formData = new FormData();
-    formData.append('title', document.getElementsByName('title')[0].value);
-    formData.append('category', document.getElementById('category').value);
-    formData.append('image', localStorage.getItem('image'));
-   //   /*fetch 'post' en direction de l'api récupération des données en json  */
-    fetch('http://localhost:5678/api/works', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4',
-        'Content-Type': 'multipart/form-data'
-      },
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-  });
- 
+  const formData = new FormData();
+  formData.append('title', document.getElementsByName('title')[0].value);
+  formData.append('category', document.getElementById('category').value);
+  const imageString = localStorage.getItem('image');
+  const blob = new Blob([imageString], { type: 'image/png/jpeg' });    
+  formData.append('image', blob);
+  const token = localStorage.getItem("token");
   
+  fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
+    },
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
   
-  
+
+  // mettre en mignature lors du chargemement de la photo modale2
+  const image = localStorage.getItem('image');
+  document.querySelector('.png').innerHTML = '<img src="' + image + '">';

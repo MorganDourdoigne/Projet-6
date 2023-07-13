@@ -16,17 +16,26 @@ document.querySelector('form').addEventListener('submit', (e) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('1')
-      },
+         },
       body: JSON.stringify(data)
     })
 // retour de la réponse si OK ouverture sur "index.html"
     .then(response => {
       if (response.ok) {
-        window.location.href = 'index.html';
+        return response.json();
 // sinon pop-up erreur avec message
       } else {
-        alert('Oups! Adresse e-mail ou mot de passe incorrect');
+        throw new Error('Oups! Adresse e-mail ou mot de passe incorrect');
       }
     })
+    .then(data => {
+      const token = data.token;
+      localStorage.setItem('token', token);
+      window.location.href = 'index.html';
+    })
+    .catch(error => {
+      alert(error.message);
+    })
     });
+
+    
