@@ -143,11 +143,11 @@ function sendAPI() {
   .then(response => response.json())
   .then(data => console.log(data));
 }
-document.getElementById('add_photo').addEventListener('click', sendAPI);
-
+document.getElementById('click_post').addEventListener('click', sendAPI);
 
 
 // mettre en mignature lors du chargemement de la photo modale2
 // const image = localStorage.getItem('image');
 // document.querySelector('.carre_back').innerHTML = '<img src="' + image + '">';
+
 
