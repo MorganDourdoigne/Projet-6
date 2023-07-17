@@ -144,5 +144,6 @@ fetch('http://localhost:5678/api/works', {
 
 
 // mettre en mignature lors du chargemement de la photo modale2
-  // const image = localStorage.getItem('image');
-  // document.querySelector('.png').innerHTML = '<img src="' + image + '">';
+const image = localStorage.getItem('image');
+document.querySelector('.carre_back').innerHTML = '<img src="' + image + '">';
+
