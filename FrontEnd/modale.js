@@ -123,27 +123,31 @@ input.addEventListener('change', function (event) {
 // transmission des données vers l'api
 /* récupération de l'image dans le localstorage +la valeur de la cat' 
 + la valeur du titre avec un écouteur d'évenemnt sur le bouton "valider"*/
-const formData = new FormData();
-formData.append('title', document.getElementsByName('title')[0].value);
-formData.append('category', document.getElementById('category').value);
-const imageString = localStorage.getItem('image');
-const blob = new Blob([imageString], { type: 'image/png/jpeg' });    
-formData.append('image', blob);
-const token = localStorage.getItem("token");
+function sendAPI() {
+  const formData = new FormData();
+  formData.append('title', document.getElementsByName('title')[0].value);
+  formData.append('category', document.getElementById('category').value);
+  const imageString = localStorage.getItem('image');
+  const blob = new Blob([imageString], { type: 'image/png/jpeg' });    
+  formData.append('image', blob);
+  const token = localStorage.getItem("token");
 
-fetch('http://localhost:5678/api/works', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'multipart/form-data'
-  },
-  body: formData
-})
-.then(response => response.json())
-.then(data => console.log(data));
+  fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
+    },
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => console.log(data));
+}
+document.getElementById('add_photo').addEventListener('click', sendAPI);
+
 
 
 // mettre en mignature lors du chargemement de la photo modale2
-const image = localStorage.getItem('image');
-document.querySelector('.carre_back').innerHTML = '<img src="' + image + '">';
+// const image = localStorage.getItem('image');
+// document.querySelector('.carre_back').innerHTML = '<img src="' + image + '">';
 
