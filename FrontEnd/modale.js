@@ -80,9 +80,9 @@ fetch("http://localhost:5678/api/works")
       container.appendChild(trash);
 // fonction lors du clic pour retirer l'élément dans l'api  par ID
       trash.addEventListener("click", () => {
-        deleteWork(work.id, trash);
-        sizeImg.remove();
-      });
+  deleteWork(work.id, trash);
+  sizeImg.remove();
+});
 
       sizeImg.appendChild(container);
 
@@ -90,7 +90,7 @@ fetch("http://localhost:5678/api/works")
     });
   })
   
-
+  
     // fonction qui annule en faisant un fetch un id 
     function deleteWork(id) {   
       fetch(`http://localhost:5678/api/works/${id}`, {
@@ -104,9 +104,8 @@ fetch("http://localhost:5678/api/works")
         .then((data) => console.log(data))
         .catch((error) => console.log(error));
     }
-  
-    
 
+    
 
 // enregistrer des images dans mon localstorage
 const input = document.querySelector('input[type="file"]');
@@ -140,8 +139,6 @@ function sendAPI() {
     },
     body: formData
   })
-  .then(response => response.json())
-  .then(data => console.log(data));
 }
 document.getElementById('click_post').addEventListener('click', sendAPI);
 

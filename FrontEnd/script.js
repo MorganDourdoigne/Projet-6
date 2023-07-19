@@ -30,7 +30,7 @@ fetch("http://localhost:5678/api/works")
       figure.appendChild(figcaption);
     }
   });
-
+ 
 
 /*partie filtre addeventlisteners*/
 /*récupération de tous les boutons à l'intérieur de "filter-container"*/
@@ -163,4 +163,5 @@ function displayBanner() {
   }
 }
 displayBanner()
+
 
