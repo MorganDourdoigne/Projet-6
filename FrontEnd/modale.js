@@ -92,7 +92,8 @@ fetch("http://localhost:5678/api/works")
   
   
     // fonction qui annule en faisant un fetch un id 
-    function deleteWork(id) {   
+     function deleteWork(id) {   
+      const token = localStorage.getItem('token')
       fetch(`http://localhost:5678/api/works/${id}`, {
         method: "DELETE",
         headers: {
@@ -107,14 +108,14 @@ fetch("http://localhost:5678/api/works")
 
     
 
-// enregistrer des images dans mon localstorage
+// enregistrer des images dans mon inner html
 const input = document.querySelector('input[type="file"]');
 input.addEventListener('change', function (event) {
   const file = event.target.files[0];
   const reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onload = function () {
-    localStorage.setItem('image', reader.result);
+  document.querySelector('.carre_back').innerHTML = '<img src="' + reader.result + '">';
   };
 });
 
@@ -126,16 +127,16 @@ function sendAPI() {
   const formData = new FormData();
   formData.append('title', document.getElementsByName('title')[0].value);
   formData.append('category', document.getElementById('category').value);
-  const imageString = localStorage.getItem('image');
-  const blob = new Blob([imageString], { type: 'image/png/jpeg' });    
-  formData.append('image', blob);
+  const image = input.files[0];
+  // const blob = new Blob([imageString], { type: 'image/png/jpeg' });    
+  formData.append('image', image);
   const token = localStorage.getItem("token");
 
   fetch('http://localhost:5678/api/works', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data'
+      'accept': 'application / json'
     },
     body: formData
   })
