@@ -140,6 +140,9 @@ function sendAPI() {
     },
     body: formData
   })
+  .then(response => {
+    location.reload(true);
+  })
 }
 document.getElementById('click_post').addEventListener('click', sendAPI);
 
