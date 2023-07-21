@@ -46,7 +46,7 @@ arrowLeft.addEventListener("click", function(e) {
 arrowLeft();
 
 // ouverture de la modale2 en cliquant sur "ajouter photo" modale1
-document.getElementById("add_photo").addEventListener("click", function(){
+document.getElementById("add_photo1").addEventListener("click", function(){
   document.getElementById("window2").style.display = "block";
 });
 
@@ -144,8 +144,24 @@ function sendAPI() {
 document.getElementById('click_post').addEventListener('click', sendAPI);
 
 
-// mettre en mignature lors du chargemement de la photo modale2
-// const image = localStorage.getItem('image');
-// document.querySelector('.carre_back').innerHTML = '<img src="' + image + '">';
+/*fonction qui fera passer au background vert le boutton "valider" lorsque
+les 3 inputs sont remplis*/
+function changeButtonColor() {
+  let title = document.getElementsByName("title")[0].value;
+  let category = document.getElementById("category").value;
+  let fileInput = document.querySelector('input[type=file]');
+  let file = fileInput.files.length > 0 ? fileInput.files[0] : null;
+  
+  if (title && category && file) {
+    document.getElementById("add_photo").style.backgroundColor = "#1D6154";
+  } else {
+    document.getElementById("add_photo").style.backgroundColor = "";
+  }
+}
+
+document.getElementsByName("title")[0].addEventListener("input", changeButtonColor);
+document.getElementById("category").addEventListener("input", changeButtonColor);
+document.querySelector('input[type=file]').addEventListener("input", changeButtonColor);
+
 
 
