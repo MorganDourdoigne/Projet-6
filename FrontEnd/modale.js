@@ -146,22 +146,18 @@ document.getElementById('click_post').addEventListener('click', sendAPI);
 
 /*fonction qui fera passer au background vert le boutton "valider" lorsque
 les 3 inputs sont remplis*/
-function changeButtonColor() {
+function changeButton() {
   let title = document.getElementsByName("title")[0].value;
   let category = document.getElementById("category").value;
-  let fileInput = document.querySelector('input[type=file]');
-  let file = fileInput.files.length > 0 ? fileInput.files[0] : null;
+  let image = input.files[0];
   
-  if (title && category && file) {
+  if (title && (category == "1" || category == "2" || category == "3") && image) {
     document.getElementById("add_photo").style.backgroundColor = "#1D6154";
   } else {
     document.getElementById("add_photo").style.backgroundColor = "";
   }
 }
 
-document.getElementsByName("title")[0].addEventListener("input", changeButtonColor);
-document.getElementById("category").addEventListener("input", changeButtonColor);
-document.querySelector('input[type=file]').addEventListener("input", changeButtonColor);
-
-
-
+document.getElementsByName("title")[0].addEventListener("input", changeButton);
+document.getElementById("category").addEventListener("input", changeButton);
+document.querySelector('input[type=file]').addEventListener("input", changeButton);
