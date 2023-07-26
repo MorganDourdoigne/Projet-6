@@ -139,9 +139,10 @@ function sendAPI() {
       'accept': 'application / json'
     },
     body: formData
-  })
-  .then(response => {
-    location.reload(true);
+   }).then(response => {
+    if (response.ok) {
+      alert("L'image a été envoyée avec succès!");
+    } 
   })
 }
 document.getElementById('click_post').addEventListener('click', sendAPI);
