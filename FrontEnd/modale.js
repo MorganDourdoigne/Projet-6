@@ -26,6 +26,13 @@ const close = document.querySelector(".fa-x");
 close.addEventListener("click",closeModal);
 
 
+// fermeture en cliquant sur l'icone X - Modale 2
+document.getElementById('close_modale2').addEventListener("click", function(e) {
+  document.getElementById("window2").style.display = "none";
+  document.getElementById("window1").style.display = "none";
+})
+
+
 // clic en dehors de la modale
 const backgroundModal = document.querySelector("#window1");
 backgroundModal.addEventListener("click", function(myEvent) {
