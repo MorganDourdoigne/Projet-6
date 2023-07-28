@@ -218,20 +218,26 @@ function sendAPI() {
       'accept': 'application / json'
     },
     body: formData
-   }).then(response => {
+  }).then(response => {
     if (response.ok) {
-            alert("L'image a été envoyée avec succès!");
-            const gallery = document.querySelector(".gallery");
-            const galleryMini = document.getElementById("galleryMini");
-            const form = document.getElementById("form");
-            gallery.innerHTML = "";
-            galleryMini.innerHTML = "";
-            document.querySelector('.carre_back').innerHTML ="";
-            fetchWorks();
-            form.reset();
-            createGallery();
-    } 
+      alert("L'image a été envoyée avec succès!");
+      const gallery = document.querySelector(".gallery");
+      const galleryMini = document.getElementById("galleryMini");
+      const form = document.getElementById("form");
+      gallery.innerHTML = "";
+      galleryMini.innerHTML = "";
+      fetchWorks();
+      form.reset();
+      createGallery();
+  
+         document.querySelector('.carre_back').innerHTML = `<div class="png">
+        <i class="fa-regular fa-image faAddImgSquare"></i><br>
+        <label class="custom-file-upload addImgLabel">
+          <input type="file">+ Ajouter photo</label>    
+        <p>jpg, png: 4mo max</p></div>`;
+    }
   })
+  
 }
 document.getElementById('click_post').addEventListener('click', sendAPI);
 
