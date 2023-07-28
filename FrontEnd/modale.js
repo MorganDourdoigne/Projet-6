@@ -32,7 +32,7 @@ document.getElementById('close_modale2').addEventListener("click", function(e) {
   document.getElementById("window1").style.display = "none";
 })
 
-// clic en dehors de la modale
+// clic en dehors de la modale1
 document.addEventListener("click", function(event) {
   var modal = document.getElementById("modal");
   var openModal = document.querySelector(".modify_button");
@@ -42,6 +42,19 @@ document.addEventListener("click", function(event) {
     document.getElementById("window1").style.display = "none";
   }
 });
+
+// clic en dehors modale2
+document.addEventListener("click", function(event) {
+  var modal2x = document.getElementById("modal2x");
+  var addPhotook = document.getElementById("add_photo1")
+
+  // en cliquant sur un élément en dehors de "modal", window1 disparait
+  if (!modal2x.contains(event.target) && event.target !== addPhotook) {
+    document.getElementById("window2").style.display = "none";
+  }
+});
+
+
 
 
 
