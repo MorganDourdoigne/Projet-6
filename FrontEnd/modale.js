@@ -32,13 +32,17 @@ document.getElementById('close_modale2').addEventListener("click", function(e) {
   document.getElementById("window1").style.display = "none";
 })
 
-
 // clic en dehors de la modale
-// const backgroundModal = document.querySelector("#window1");
-// backgroundModal.addEventListener("click", function(myEvent) {
-//   myEvent.preventDefault();
-//   closeModal();
-// });
+document.addEventListener("click", function(event) {
+  var modal = document.getElementById("modal");
+  var openModal = document.querySelector(".modify_button");
+
+  // en cliquant sur un élément en dehors de "modal", window1 disparait
+  if (!modal.contains(event.target) && event.target !== openModal) {
+    document.getElementById("window1").style.display = "none";
+  }
+});
+
 
 
 // flèche pour passer de window2 à window1
@@ -59,42 +63,6 @@ document.getElementById("add_photo1").addEventListener("click", function(){
 
 
 
-// mise en place de la gallerie dans la modale en javascript
-// const galleryMini = document.getElementById("galleryMini");
-// fetch("http://localhost:5678/api/works")
-//   .then(response => response.json())
-//   .then(data => {
-//     data.forEach(work => {
-//       const sizeImg = document.createElement("div");
-//       sizeImg.classList.add("size_img");
-
-//       const container = document.createElement("div");
-//       container.classList.add("container");
-
-//       const img = document.createElement("img");
-//       img.src = work.imageUrl;
-//       img.alt = work.title;
-//       container.appendChild(img);
-
-//       const edit = document.createElement("div");
-//       edit.classList.add("edit");
-//       const editText = document.createTextNode("éditer");
-//       edit.appendChild(editText);
-//       container.appendChild(edit);
-
-//       const trash = document.createElement("i");
-//       trash.classList.add("fa-regular", "fa-trash-can", "icon");
-//       container.appendChild(trash);
-// // fonction lors du clic pour retirer l'élément dans l'api  par ID
-//       trash.addEventListener("click", () => {
-//   deleteWork(work.id, trash);
-//   sizeImg.remove();
-// });
-//      sizeImg.appendChild(container);
-
-//       galleryMini.appendChild(sizeImg);
-//     });
-//   })
 
   function createGallery (){
     const galleryMini = document.getElementById("galleryMini");
