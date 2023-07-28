@@ -226,6 +226,7 @@ function sendAPI() {
             const form = document.getElementById("form");
             gallery.innerHTML = "";
             galleryMini.innerHTML = "";
+            document.querySelector('.carre_back').innerHTML ="";
             fetchWorks();
             form.reset();
             createGallery();
@@ -254,4 +255,3 @@ document.getElementById("category").addEventListener("input", changeButton);
 document.querySelector('input[type=file]').addEventListener("input", changeButton);
 
 createGallery();
-console.log(document.getElementById("form"))
