@@ -1,7 +1,7 @@
 //Fonction pour ouvrir la modale
 let openModal = function (e) {
   e.preventDefault()
-  const modal = document.querySelector('#window1');
+  const modal = document.getElementById('window1');
   modal.removeAttribute("aria-hidden")
   modal.setAttribute("aria-modal","true")
   modal.style.display = "block"
@@ -32,13 +32,17 @@ document.getElementById('close_modale2').addEventListener("click", function(e) {
   document.getElementById("window1").style.display = "none";
 })
 
-// clic en dehors de la modale1
+
+
+
+
+// // clic en dehors de la modale1
 document.addEventListener("click", function(event) {
-  var modal = document.getElementById("modal");
-  var openModal = document.querySelector(".modify_button");
+  var modal32 = document.getElementById("modal");
+  var openModal1 = document.querySelector(".modify_button");
 
   // en cliquant sur un élément en dehors de "modal", window1 disparait
-  if (!modal.contains(event.target) && event.target !== openModal) {
+  if (!modal32.contains(event.target) && event.target !== openModal1) {
     document.getElementById("window1").style.display = "none";
   }
 });
@@ -54,7 +58,10 @@ document.addEventListener("click", function(event) {
   }
 });
 
-
+// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
+document.getElementById("add_photo1").addEventListener("click", function(){
+  document.getElementById("window2").style.display = "block";
+});
 
 
 
@@ -69,10 +76,6 @@ arrowLeft.addEventListener("click", function(e) {
 }
 arrowLeft();
 
-// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
-document.getElementById("add_photo1").addEventListener("click", function(){
-  document.getElementById("window2").style.display = "block";
-});
 
 
 
