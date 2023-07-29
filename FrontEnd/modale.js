@@ -34,6 +34,8 @@ document.getElementById('close_modale2').addEventListener("click", function() {
 
 
 
+
+// Fermeture de la modale1 lors d'un clic en dehors
 var modal = document.getElementById('window1');
 
 window.addEventListener('click', function(event) {
@@ -42,16 +44,16 @@ window.addEventListener('click', function(event) {
   }
 });
 
-
-
-
-var modal = document.getElementById('window2');
+// Fermeture de la modale2 lors d'un clic en dehors
+var modal2 = document.getElementById('window2');
 
 window.addEventListener('click', function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == modal2) {
+    modal2.style.display = "none";
   }
 });
+
+
 
 
 // flèche pour passer de window2 à window1
