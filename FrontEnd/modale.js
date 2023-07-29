@@ -12,8 +12,8 @@ open.addEventListener("click",openModal);
 
 
 // fermeture de la modale
-const modal = document.querySelector("#window1");
-function closeModal (e){
+function closeModal (){
+  const modal = document.getElementById("window1");
   if (modal === null) return
   modal.style.display = "none"
   modal.setAttribute("aria-hidden", "true")
@@ -27,7 +27,7 @@ close.addEventListener("click",closeModal);
 
 
 // fermeture en cliquant sur l'icone X - Modale 2
-document.getElementById('close_modale2').addEventListener("click", function(e) {
+document.getElementById('close_modale2').addEventListener("click", function() {
   document.getElementById("window2").style.display = "none";
   document.getElementById("window1").style.display = "none";
 })
@@ -35,33 +35,18 @@ document.getElementById('close_modale2').addEventListener("click", function(e) {
 
 
 
+// clic en dehors de la modale
+// document.addEventListener("click", function(event) {
+//   var carreBlanc = document.getElementById("superModal1");
+//   var openModal1 = document.querySelector(".modify_button");
 
-// // clic en dehors de la modale1
-document.addEventListener("click", function(event) {
-  var modal32 = document.getElementById("modal");
-  var openModal1 = document.querySelector(".modify_button");
+//   // en cliquant sur un élément en dehors de "modal", window1 disparait
+//   if (!carreBlanc.contains(event.target) && event.target !== openModal1) {
+//     document.getElementById("window1").style.display = "block";
+//   }
+// });
 
-  // en cliquant sur un élément en dehors de "modal", window1 disparait
-  if (!modal32.contains(event.target) && event.target !== openModal1) {
-    document.getElementById("window1").style.display = "none";
-  }
-});
 
-// clic en dehors modale2
-document.addEventListener("click", function(event) {
-  var modal2x = document.getElementById("modal2x");
-  var addPhotook = document.getElementById("add_photo1")
-
-  // en cliquant sur un élément en dehors de "modal", window1 disparait
-  if (!modal2x.contains(event.target) && event.target !== addPhotook) {
-    document.getElementById("window2").style.display = "none";
-  }
-});
-
-// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
-document.getElementById("add_photo1").addEventListener("click", function(){
-  document.getElementById("window2").style.display = "block";
-});
 
 
 
@@ -76,9 +61,10 @@ arrowLeft.addEventListener("click", function(e) {
 }
 arrowLeft();
 
-
-
-
+// ouverture de la modale2 en cliquant sur "ajouter photo" modale1
+document.getElementById("add_photo1").addEventListener("click", function(){
+  document.getElementById("window2").style.display = "block";
+});
 
   function createGallery (){
     const galleryMini = document.getElementById("galleryMini");
@@ -122,10 +108,6 @@ arrowLeft();
       })
     
   }
-
-
-
-
 
   function fetchWorks (){
     fetch("http://localhost:5678/api/works")
