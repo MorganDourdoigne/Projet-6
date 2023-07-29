@@ -34,29 +34,24 @@ document.getElementById('close_modale2').addEventListener("click", function() {
 
 
 
-// clic en dehors de la modale 1
-// document.addEventListener("click", function(event) {
-//   var carreBlanc = document.getElementById("superModal1");
-//   var openModal1 = document.querySelector(".modify_button");
+var modal = document.getElementById('window1');
 
-//   // en cliquant sur un élément en dehors de "modal", window1 disparait
-//   if (!carreBlanc.contains(event.target) && event.target !== openModal1) {
-//     document.getElementById("window1").style.display = "none";
-//   }
-// });
-
-// // clic en dehors de la modale 2
-// // document.addEventListener("click", function(event) {
-// //   var carreBlanc = document.getElementById("superModal2");
-
-// //   // en cliquant sur un élément en dehors de "modal", window2 disparait
-// //   if (!carreBlanc.contains(event.target)) {
-// //     document.getElementById("window2").style.display = "none";
-// //   }
-// // });
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
 
 
 
+
+var modal = document.getElementById('window2');
+
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
 
 
 // flèche pour passer de window2 à window1
