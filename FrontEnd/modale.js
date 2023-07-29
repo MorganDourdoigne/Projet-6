@@ -72,6 +72,7 @@ arrowLeft();
 
 // ouverture de la modale2 en cliquant sur "ajouter photo" modale1
 document.getElementById("add_photo1").addEventListener("click", function(){
+  document.getElementById("window1").style.display = "none";
   document.getElementById("window2").style.display = "block";
 });
 
