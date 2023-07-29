@@ -34,17 +34,26 @@ document.getElementById('close_modale2').addEventListener("click", function() {
 
 
 
-
-// clic en dehors de la modale
+// clic en dehors de la modale 1
 // document.addEventListener("click", function(event) {
 //   var carreBlanc = document.getElementById("superModal1");
 //   var openModal1 = document.querySelector(".modify_button");
 
 //   // en cliquant sur un élément en dehors de "modal", window1 disparait
 //   if (!carreBlanc.contains(event.target) && event.target !== openModal1) {
-//     document.getElementById("window1").style.display = "block";
+//     document.getElementById("window1").style.display = "none";
 //   }
 // });
+
+// // clic en dehors de la modale 2
+// // document.addEventListener("click", function(event) {
+// //   var carreBlanc = document.getElementById("superModal2");
+
+// //   // en cliquant sur un élément en dehors de "modal", window2 disparait
+// //   if (!carreBlanc.contains(event.target)) {
+// //     document.getElementById("window2").style.display = "none";
+// //   }
+// // });
 
 
 
@@ -65,6 +74,7 @@ arrowLeft();
 document.getElementById("add_photo1").addEventListener("click", function(){
   document.getElementById("window2").style.display = "block";
 });
+
 
   function createGallery (){
     const galleryMini = document.getElementById("galleryMini");
@@ -195,13 +205,13 @@ function sendAPI() {
       fetchWorks();
       form.reset();
       createGallery();
-  
-         document.querySelector('.carre_back').innerHTML = `<div class="png">
+          document.querySelector('.carre_back').innerHTML = `<div class="png">
         <i class="fa-regular fa-image faAddImgSquare"></i><br>
         <label class="custom-file-upload addImgLabel">
           <input type="file">+ Ajouter photo</label>    
         <p>jpg, png: 4mo max</p></div>`;
-    }
+
+        }
   })
   
 }
